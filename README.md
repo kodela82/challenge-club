@@ -1,6 +1,7 @@
+[README.md](https://github.com/user-attachments/files/32738851/README.md)
 # Challenge Club
 
-Een spel met AI-challenges voor kinderen. De website bewaart namen, leeftijden, rondes en scores alleen in de browser (`localStorage`). De Cloudflare Pages Function gebruikt een OpenAI API-key als Cloudflare Secret.
+Een spel met AI-challenges voor kinderen. Je kunt het voorwerp typen of met de webcam/telefooncamera fotograferen. De website bewaart namen, leeftijden, rondes en scores alleen in de browser (`localStorage`). De Cloudflare Pages Function gebruikt een OpenAI API-key als Cloudflare Secret.
 
 ## Publiceren via GitHub en Cloudflare Pages
 
@@ -16,4 +17,4 @@ Gebruik `npx wrangler pages dev .` vanuit deze map en zet voor lokale tests een 
 
 ## Grenzen
 
-De app doet per generatie één betaalde OpenAI-aanvraag; een andere challenge vraagt opnieuw een generatie. Punten voor de afgeronde ronde worden geboekt bij **Volgende ronde**. De spelstand is per browser en synchroniseert niet tussen apparaten. De server valideert invoer en controleert enkele risicowoorden in de uitvoer; AI-uitvoer kan alsnog ongepast zijn. Een volwassene blijft bij fysieke challenges toezicht houden. Voor publieke inzet is een limiet per bezoeker via Cloudflare WAF/rate limiting en eventueel een dagbudget op het OpenAI-project verstandig.
+De app doet per generatie één betaalde OpenAI-aanvraag, ook wanneer je een foto gebruikt. Een foto telt als extra invoer en kan daardoor iets meer kosten; een andere challenge vraagt opnieuw een generatie. Punten voor de afgeronde ronde worden geboekt bij **Volgende ronde**. Foto’s blijven alleen tijdelijk in het geheugen van de browser, worden voor een challenge naar OpenAI gestuurd en worden niet in de spelstand opgeslagen. Cameratoegang werkt op HTTPS of localhost. De spelstand is per browser en synchroniseert niet tussen apparaten. De server valideert invoer en controleert enkele risicowoorden in de uitvoer; AI-uitvoer kan alsnog ongepast zijn. Een volwassene blijft bij fysieke challenges toezicht houden. Voor publieke inzet is een limiet per bezoeker via Cloudflare WAF/rate limiting en eventueel een dagbudget op het OpenAI-project verstandig.
